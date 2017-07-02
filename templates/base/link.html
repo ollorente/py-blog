@@ -1,0 +1,11 @@
+{% if link %}
+<ul class="list-group">
+	<a href="#" class="list-group-item active">Más leídos</a>
+	{% for link in link %}
+	<li class="list-group-item">
+		<span class="badge">{{ link.vistas }}</span>
+		<a href="/{{ link.categoria.slug }}/{{ link.id }}/{{ link.slug }}">{{ link.titulo }}</a>
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}

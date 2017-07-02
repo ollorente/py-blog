@@ -1,0 +1,29 @@
+{% load staticfiles %}
+{% if post %}
+<div>
+	<div class="media">
+		<div class="media-left">
+			<a href="/autor/{{ categoria.username }}/"><div class="img-post" style="background-image:url(/static/media/{{ categoria.username }}.jpg);" alt="{{ post.titulo }}"></div></a>
+		</div>
+		<div class="media-body">
+			<h1 class="media-heading"><a href="/autor/{{ categoria.username }}/" class="text-primary">{{ categoria.first_name }} {{ categoria.last_name }}</a></h1>
+			<p class="small">Desde <span><b>{{ categoria.date_joined }}</b></span></p>
+			<p><span class="label label-default"><b>{{ postcount }}</b> post</span></p>
+		</div>
+	</div>
+</div>
+<div>
+	<h1 class="text-center">{{ categoria.titulo }}</h1>
+	{% for post in post %}
+	<div class="media">
+		<div class="media-body">
+			<h3 class="media-heading"><a href="/{{ post.categoria.slug }}/{{ post.id }}/{{ post.slug }}">{{ post.titulo }}</a></h3>
+			<p>{{ post.contenido|truncatewords:"35" }}</p>
+			<p class="small"><span><b>{{ post.fechacreado }}</b></span> - <a href="/{{ post.categoria.slug }}/"><span>{{ post.categoria }}</span></a></p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endif %}
+{% include 'base/ads.html' %}
+{% include 'base/paginacion.html' %}

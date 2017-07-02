@@ -1,0 +1,10 @@
+<div class="col-sm-12" style="padding:15px;"></div>
+<div class="row">
+	<div class="col-sm-12">
+		<ul class="breadcrumb">
+			{% if categoria.slug %}<li><a href="/{{ categoria.slug }}/">{{ categoria.titulo }}</a></li>{% else %}<li><a href="/{{ categoria.slug }}">Home</a></li>{% endif %}
+			{% if categoriass.slug %}<li><a href="#">Library</a></li>{% endif %}
+			{% if categoriass.slug %}<li class="active">Data</li>{% endif %}
+		</ul>
+	</div>
+</div>

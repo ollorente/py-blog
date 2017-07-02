@@ -1,0 +1,13 @@
+{% if post %}
+<div>
+	{% for post in post %}
+	<p><span><b>{{ post.fechacreado }}</b></span></p>
+	<h1 class="text-left">{{ post.titulo }}</h1>
+	<p>Por <a href="/autor/{{ post.autor }}"><span>{{ post.autor.first_name }} {{ post.autor.last_name }}</span></a></p>
+	<p style="padding:10px;"></p>
+	<p>{{ post.contenido|escape }}</p>
+	{% if post.vistas %}<p><span class="label label-default"><b>{{ post.vistas }}</b> vistos</span></p>{% endif %}
+	{% endfor %}
+</div>
+{% endif %}
+{% include 'base/ads.html' %}

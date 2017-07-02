@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<div>
+	<a href="/{{ teccategoria.slug }}/"><div class="alert alert-dismissible alert-info"><h3 class="text-left">{{ teccategoria.titulo }}</h3></div></a>
+	{% if tecnologia %}
+	{% for tecnologia in tecnologia %}
+	<div class="media">
+		<div class="media-body">
+			<h3 class="media-heading"><a href="/{{ tecnologia.categoria.slug }}/{{ tecnologia.id }}/{{ tecnologia.slug }}">{{ tecnologia.titulo }}</a></h3>
+			<p>{{ tecnologia.contenido|truncatewords:"20" }}</p>
+			<p class="small"><span><b>{{ tecnologia.fechacreado }}</b></span> - <a href="/autor/{{ tecnologia.autor }}"><span>{{ tecnologia.autor.first_name }} {{ tecnologia.autor.last_name }}</span></a></p>
+		</div>
+	</div>
+	{% endfor %}
+	{% endif %}
+</div>

@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block title %} {{ categoria.titulo }} :: Blog Flatly{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="col-sm-12">
+					{% include 'base/lead.html' %}
+				</div>
+				<div class="col-sm-12" style="padding:20px;"></div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<aside>
+				{% include 'base/link.html' %}
+			</aside>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<div class="caja padding-10">
+	<h1>Buscar</h1>
+	<form action="/buscar" method="get">
+		<label for="q">Buscar: </label>
+		<input type="text" name="q" value="{{ query|escape }}">
+		<input type="submit" value="Buscar">
+	</form>
+
+	{% if query %}
+		<h2>Resultados de "{{ query|escape }}":</h2>
+
+		{% if results %}
+				{% for result in results %}
+				<hr>
+				<h3><a href="/u/{{result.apodo|escape }}">{{result.nombre|escape }}</a></h3>
+				<p>{{result.ciudad|escape }} - {{result.estado|escape }} - {{ result.pais|escape }}</p>
+				<p>{{result.tipo|escape }}</p>
+				{% endfor %}
+		{% else %}
+			<p>No hay resultados</p>
+		{% endif %}
+	{% endif %}
+</div>

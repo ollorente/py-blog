@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<div>
+	<a href="/{{ humcategoria.slug }}/"><div class="alert alert-dismissible alert-info"><h3 class="text-left">{{ humcategoria.titulo }}</h3></div></a>
+	{% if humor %}
+	{% for humor in humor %}
+	<div class="media">
+		<div class="media-body">
+			<h3 class="media-heading"><a href="/{{ humor.categoria.slug }}/{{ humor.id }}/{{ humor.slug }}">{{ humor.titulo }}</a></h3>
+			<p>{{ humor.contenido|truncatewords:"20" }}</p>
+			<p class="small"><span><b>{{ humor.fechacreado }}</b></span> - <a href="/autor/{{ humor.autor }}"><span>{{ humor.autor.first_name }} {{ humor.autor.last_name }}</span></a></p>
+		</div>
+	</div>
+	{% endfor %}
+	{% endif %}
+</div>

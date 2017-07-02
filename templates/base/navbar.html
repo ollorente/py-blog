@@ -1,0 +1,42 @@
+<div class="navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="/" class="navbar-brand">Blog Flatly</a>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse" id="navbar-main">
+					<ul class="nav navbar-nav">
+						<form action="/buscar" class="navbar-form navbar-left" role="search" method="get">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Buscar..." aria-describedby="basic-addon2" name="q" value="{{ query|escape }}">
+								<span class="input-group-addon" id="buscar">Buscar</span>
+							</div>
+						</form>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Categorías <span class="caret"></span></a>
+							<ul class="dropdown-menu" aria-labelledby="themes">
+								{% if categorias %}
+								{% for categorias in categorias %}
+								<li><a href="/{{ categorias.slug }}/">{{ categorias.titulo }}</a></li>
+								{% endfor %}
+								{% endif %}
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						{% if not user.is_authenticated %}
+						<li><a href="/entrar/">Entrar</a></li>
+						<li><a href="/crear-cuenta/" class="btn btn-success">Registrase</a></li>
+						{% else %}
+						<li><a href=".">Salir</a></li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>

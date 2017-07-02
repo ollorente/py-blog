@@ -1,0 +1,20 @@
+{% load staticfiles %}
+{% if post %}
+<div>
+	<div class="alert alert-dismissible alert-success"><h1 class="text-center">{{ categoria.titulo }}</h1></div>
+	{% for post in post %}
+	<div class="media">
+		<div class="media-left">
+			<a href="/{{ post.categoria.slug }}/{{ post.id }}/{{ post.slug }}"><div class="img-avatar" style="background-image:url(/static/media/{{ post.autor }}.jpg);" alt="{{ post.titulo }}"></div></a>
+		</div>
+		<div class="media-body">
+			<h3 class="media-heading"><a href="/{{ post.categoria.slug }}/{{ post.id }}/{{ post.slug }}">{{ post.titulo }}</a></h3>
+			<p>{{ post.contenido|truncatewords:"35" }}</p>
+			<p class="small"><span><b>{{ post.fechacreado }}</b></span> - <a href="/autor/{{ post.autor }}"><span>{{ post.autor.first_name }} {{ post.autor.last_name }}</span></a></p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endif %}
+{% include 'base/ads.html' %}
+{% include 'base/paginacion.html' %}

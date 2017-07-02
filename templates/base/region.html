@@ -1,0 +1,15 @@
+{% load staticfiles %}
+<div>
+	<a href="/{{ regcategoria.slug }}/"><div class="alert alert-dismissible alert-info"><h3 class="text-left">{{ regcategoria.titulo }}</h3></div></a>
+	{% if region %}
+	{% for region in region %}
+	<div class="media">
+		<div class="media-body">
+			<h3 class="media-heading"><a href="/{{ region.categoria.slug }}/{{ region.id }}/{{ region.slug }}">{{ region.titulo }}</a></h3>
+			<p>{{ region.contenido|truncatewords:"20" }}</p>
+			<p class="small"><span><b>{{ region.fechacreado }}</b></span> - <a href="/autor/{{ region.autor }}"><span>{{ region.autor.first_name }} {{ region.autor.last_name }}</span></a></p>
+		</div>
+	</div>
+	{% endfor %}
+	{% endif %}
+</div>
