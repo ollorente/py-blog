@@ -1,7 +1,8 @@
 from django.conf.urls import url
+from django.contrib.auth.decorators import login_required
 
-from apps.home.views import indexHome
+from apps.post.views import indexPost
 
 urlpatterns = [
-	url(r'^$', indexHome),
+	url(r'^$', indexPost, name="vista_post"),
 ]
