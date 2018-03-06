@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css?family=Mina');
+body {
+  background: #e6e6e6;
+}
+.cenefa {
+  background-image: url(../img/P1000621.jpg);
+  background-size: cover;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-position: center center;
+	background-color: #ddd;
+}
+.caja {
+	background: #fff;
+	border: solid 1px #ddd;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	min-height: 25px;
+}
+.padding-10 {
+	padding: 10px;
+}
+.bottom {
+  margin-bottom: 40px;
+}
+.flow {
+	overflow: auto;
+}
+.pub {
+  border-top: solid 2px #e6e6e6;
+  /*border-bottom: solid 2px #e6e6e6;*/
+}
+.margin-auto {
+  margin: auto;
+}
+@media (max-width: 767px) {
+  .cenefa {
+    height: 250px;
+  }
+  .top {
+    margin-top: -125px;
+  }
+}
+@media (min-width: 768px) {
+  .cenefa {
+    height: 300px;
+  }
+  .top {
+    margin-top: -160px;
+  }
+}
+@media (min-width: 992px) {
+  .cenefa {
+    height: 320px;
+  }
+  .top {
+    margin-top: -160px;
+  }
+}
+@media (min-width: 1200px) {
+  .cenefa {
+    height: 380px;
+  }
+  .top {
+    margin-top: -160px;
+  }
+}
